@@ -23,13 +23,13 @@ clickedElement.classList.add('active')
     console.log(post);
     post.classList.remove('active');
 }
-  /* [IN PROGRES]get 'href' attribute from the clicked link */
-const linkHrefAtribute = this.getAttribute("href");
+  /*[DONE] get 'href' attribute from the clicked link */
+const linkHrefAtribute = this.getAttribute("href").replace(/[#]/g, '');
 console.log(linkHrefAtribute);
-  /* find the correct article using the selector (value of 'href' attribute) */
-
+  /* [IN PROGRES]find the correct article using the selector (value of 'href' attribute) */
+const clickedArticle = document.getElementById(linkHrefAtribute);
   /* add class 'active' to the correct article */
-
+clickedArticle.classList.add('active');
 
 }
 
