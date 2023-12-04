@@ -53,7 +53,7 @@ function generateTitleLinks(){
     console.log(ArticleId + "ID Article");
     
     // [DONE]find element with title & get innerHTML
-    const titleE = document.querySelector( "#"+ArticleId+" h3").innerHTML;
+    const titleE = post.querySelector( titleElements).innerHTML;
     console.log(titleE);
     
     
