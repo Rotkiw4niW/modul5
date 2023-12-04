@@ -18,6 +18,7 @@ const activeArticles = document.querySelectorAll('.posts .active');
   /* [DONE]add class 'active' to the clicked link */
 console.log('clickedElement', clickedElement);
 clickedElement.classList.add('active')
+
   /* [DONE]remove class 'active' from all articles */
   for(let post of activeArticles){
     console.log(post);
@@ -34,37 +35,44 @@ clickedArticle.classList.add('active');
 }
 
 
-const AllArticles = document.querySelectorAll('.post');
-const titleElements = document.querySelectorAll('.post-title');
-
 
 function generateTitleLinks(){
-// [DONE] delate content from links list
-for(let link of linksList_AllPosts){
-  link.innerHTML="";
-
+  // [DONE] delate content from links list
+  for(let link of linksList_AllPosts){
+    link.innerHTML="";
+    
+    
+  }
   
   // [DONE]get "id" attribute from each article 
+  
+  const titleElements = ".post-title";
+  const AllArticles = document.querySelectorAll('.post');
   for(let post of AllArticles){
     let ArticleId = post.getAttribute('id');
-    console.log(ArticleId);
+    console.log(ArticleId + "ID Article");
+    
+    // [DONE]find element with title & get innerHTML
+    const titleE = document.querySelector( "#"+ArticleId+" h3").innerHTML;
+    console.log(titleE);
+    
+    
+    //[IN PROGRES] create "HtmlpostTitle" const with htlm for titles
+    let HtmlPostTitle = ArticleId + titleE;
+   
+    // inject postTitle too list elements
+    
+    document.querySelector('[href="' +"#"+ ArticleId + '"]').innerHTML = HtmlPostTitle;
+    
+    } 
     
   }
-  
-  // [DONE]find element with title & get innerHTML
-  for(let title of titleElements){
-    let titleFromElement = title.innerHTML;
-    console.log(titleFromElement);
-    
-    //[IN PROGRES] create "postTitle" const with htlm for titles
-    let HtmlPostTitle = titleFromElement;
-    console.log("tytuł" + HtmlPostTitle);
-  }
-// inject postTitle too list elements
 
-  }
 
-}
+  generateTitleLinks();
+
+
+
 
 for(let link of linksList_AllPosts){
   link.addEventListener('click', titleClickHandler);
