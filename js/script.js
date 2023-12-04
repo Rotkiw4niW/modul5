@@ -34,15 +34,17 @@ clickedArticle.classList.add('active');
 
 }
 
-
+let optTitlesListSelector= ".titles";
 
 function generateTitleLinks(){
   // [DONE] delate content from links list
-  for(let link of linksList_AllPosts){
-    link.innerHTML="";
+  let lista =document.querySelector(optTitlesListSelector);
+  lista.innerHTML="";
+  // for(let link of linksList_AllPosts){
+  //   link.innerHTML="";
     
     
-  }
+  // }
   
   // [DONE]get "id" attribute from each article 
   
@@ -62,7 +64,7 @@ function generateTitleLinks(){
    
     // inject postTitle too list elements
     
-    document.querySelector('[href="' +"#"+ ArticleId + '"]').innerHTML = HtmlPostTitle;
+    document.querySelector(optTitlesListSelector).innerHTML += "<a href="+"#"+ ArticleId +"><span>"+HtmlPostTitle+"</span></a> ";
     
     } 
     
