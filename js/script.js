@@ -1,5 +1,5 @@
 'use strict';
-const linksList_AllPosts = document.querySelectorAll('.titles a');
+
 
 
 function titleClickHandler(event){
@@ -64,18 +64,22 @@ function generateTitleLinks(){
    
     // inject postTitle too list elements
     
-    document.querySelector(optTitlesListSelector).innerHTML += "<a href="+"#"+ ArticleId +"><span>"+HtmlPostTitle+"</span></a> ";
+    document.querySelector(optTitlesListSelector).innerHTML += "<li><a href="+"#"+ ArticleId +"><span>"+HtmlPostTitle+"</span></a><li> ";
     
     } 
     
+ 
+    const linksList_AllPosts = document.querySelectorAll('.titles a');
+    console.log(linksList_AllPosts);
+    for(let link of linksList_AllPosts){
+      link.addEventListener('click', titleClickHandler);
+    };
+    
   }
-
-
   generateTitleLinks();
 
+  
 
 
 
-for(let link of linksList_AllPosts){
-  link.addEventListener('click', titleClickHandler);
-};
+
