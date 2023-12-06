@@ -17,7 +17,11 @@ $font-text: 'Source Sans Pro', sans-serif;
 ::-webkit-scrollbar{
   display: none;
 }
-
+a{
+  text-decoration: none;
+  color: black;
+  transition: 1s;
+}
 
 body {
   background: $color-light;
@@ -86,9 +90,13 @@ body {
 .list {
   list-style-type: none;
   margin: 0;
+  font-family: $font-logo;
   padding: 20;
+  transition: 1s;
   .active {
-    font-weight: bold;
+    margin-left: 20%;
+    text-shadow: 3px 3px rgba(255, 217, 0, 0.689);
+  transition: 1s;
   }
 }
 
