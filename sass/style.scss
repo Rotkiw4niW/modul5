@@ -5,7 +5,7 @@
 $color-light: #a8a6a6;
 $color-dark: #444;
 
-$font-logo: 'Sacramento', cursive;
+$font-logo: 'Caveat', cursive;
 $font-header: 'Oswald', sans-serif;
 $font-text: 'Source Sans Pro', sans-serif;
 
@@ -14,6 +14,10 @@ $font-text: 'Source Sans Pro', sans-serif;
 *, *::before, *::after {
   box-sizing: border-box;
 }
+::-webkit-scrollbar{
+  display: none;
+}
+
 
 body {
   background: $color-light;
@@ -54,6 +58,8 @@ body {
 
 .posts {
   flex: 2 0 0;
+  position: relative;
+  
 }
 
 .sidebar, .posts {
@@ -62,13 +68,14 @@ body {
   padding: 40px;
   border: 1px solid $color-dark;
   border-radius: 5px;
+  overflow: auto;
 }
 
 /* Logo */
 
 .logo {
   font-family: $font-logo;
-  font-weight: 400;
+ 
   font-size: 104px;
   line-height: 1;
   text-align: center;
@@ -79,7 +86,7 @@ body {
 .list {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 20;
   .active {
     font-weight: bold;
   }
@@ -102,11 +109,17 @@ body {
 /* Post */
 
 .post {
-  display: none;
+  opacity: 0;
+  transition: 1s;
+  z-index: 0;
   
+ position: absolute;
 }
 .post.active {
-  display: block;
+
+  z-index: 1;
+  opacity: 1;
+  transition:  1s;
 }
 .post-author {
   font-style: italic;
@@ -118,3 +131,4 @@ body {
     margin: 0 10px 0 0;
   }
 }
+
